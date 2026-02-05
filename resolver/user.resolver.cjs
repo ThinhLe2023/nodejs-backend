@@ -1,15 +1,13 @@
-const users = [
-    { id: 1, name: "John Doe", email: "john@example.com" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com" }
-];
-
-const userResolver = {
+export default {
     Query: {
+        users: () => [
+                        { id: 1, name: "John Doe", email: "john@example.com" },
+                        { id: 2, name: "Jane Smith", email: "jane@example.com" }
+                    ],
         getUser: (_, { id }) => {
             //return users.find(user => user.id === parseInt(id));
             return { id: id, name: "John Doe", email: "john@example.com" };
         }
-
     },
 
     Mutation: {
@@ -20,5 +18,3 @@ const userResolver = {
         }
     }
 };
-
-export  {userResolver};
