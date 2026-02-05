@@ -1,4 +1,4 @@
-export default {
+const userResolver = {
     Query: {
         users: () => [
                         { id: 1, name: "John Doe", email: "john@example.com" },
@@ -18,3 +18,4 @@ export default {
         }
     }
 };
+export default userResolver;
