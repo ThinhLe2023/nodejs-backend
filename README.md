@@ -17,3 +17,26 @@ This BE will prepare APIs to serve FE as fetch data or saving new data into Mong
 
 ### CICD : using git action
 - TODO
+
+
+
+### Frontend side for upload large file
+chunkSize: 5 * 1024 * 1024;  -> 5 MB (minimum size)
+
+Technic 1: upload chunk by chunk from FE -> BE -> S3 which uses AWS-SDK 2 as communication. Ex: appAWS.js
+Technic 2: upload hold file from FE -> BE, here BE chunk by chunk to S3 which follow AWS SDK 3 (S3Client package). Ex: appAWS2.js
+    cmd: npm install @aws-sdk/lib-storage @aws-sdk/client-s3
+
+    + bucket policy:
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Sid": "PublicReadGetObject",
+                    "Effect": "Allow",
+                    "Principle":"*",
+                    "Action":"s3:GetObject",
+                    "Resource":"arn:aws:s3:::youtube-demo-s3-upload/*"
+                }
+            ]
+        }
