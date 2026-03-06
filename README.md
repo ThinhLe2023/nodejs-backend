@@ -40,3 +40,7 @@ Technic 2: upload hold file from FE -> BE, here BE chunk by chunk to S3 which fo
                 }
             ]
         }
+
+
+### for AWS cognito authentication
+https://github.com/stevenalexander/node-aws-cognito-oauth2-example/blob/master/README.md
